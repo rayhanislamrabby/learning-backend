@@ -1,6 +1,112 @@
 
+<img width="1114" height="529" alt="Untitled" src="https://github.com/user-attachments/assets/661f71e0-fb14-49ee-ad8d-e81b87bd462f" />
 
+Database Management System (DBMS) Interview Questions & Answers
 
+This document serves as a technical reference for core Database Management System (DBMS) concepts commonly asked in interviews and used in backend development.
+
+1. What is the difference between Primary Key and Foreign Key?
+Answer:
+Primary Key:
+
+A Primary Key is a column (or set of columns) that uniquely identifies each row in a table.
+It cannot contain NULL values and must always contain unique values.
+
+Foreign Key:
+
+A Foreign Key is a column that creates a relationship between two tables.
+It references the Primary Key of another table to maintain referential integrity.
+
+2. Why is normalization important?
+Answer:
+
+Normalization is important because it:
+
+Reduces duplicate data
+Improves data integrity
+Prevents insertion, update, and deletion anomalies
+Organizes database tables efficiently
+3. What is a JOIN?
+Answer:
+
+A JOIN is used to combine rows from two or more tables based on a related column.
+
+Types of JOIN:
+INNER JOIN:
+
+Returns only matching records from both tables.
+
+LEFT JOIN:
+
+Returns all records from the left table and matched records from the right table.
+
+RIGHT JOIN:
+
+Returns all records from the right table and matched records from the left table.
+
+4. What is the difference between SQL and MongoDB?
+Answer:
+SQL (Relational Database):
+Stores data in tables
+Uses predefined schema
+Supports complex joins
+Follows ACID properties
+MongoDB (NoSQL Database):
+Stores data in JSON-like documents
+Uses dynamic schema
+Highly scalable
+Best for unstructured data
+5. What is a composite key?
+Answer:
+
+A composite key is a primary key made using two or more columns together to uniquely identify a row.
+
+6. What is a weak entity?
+Answer:
+
+A weak entity is an entity that cannot be identified uniquely by its own attributes.
+It depends on another strong entity through a foreign key.
+
+7. Why do we use constraints?
+Answer:
+
+Constraints are rules applied to database columns to maintain data accuracy and integrity.
+
+Common Constraints:
+NOT NULL
+UNIQUE
+CHECK
+DEFAULT
+PRIMARY KEY
+FOREIGN KEY
+8. Explain many-to-many relationship.
+Answer:
+
+A many-to-many relationship occurs when multiple records in one table are associated with multiple records in another table.
+
+This relationship is implemented using a Junction Table containing foreign keys from both tables.
+
+9. What is the difference between Clustered and Non-Clustered Index?
+Answer:
+Clustered Index:
+Stores data physically in sorted order
+Only one clustered index allowed per table
+Non-Clustered Index:
+Stores index separately from actual data
+Multiple non-clustered indexes can exist in a table
+10. Explain Database Sharding and Partitioning.
+Answer:
+Partitioning:
+
+Partitioning divides a large table into smaller parts inside a single database server.
+
+Sharding:
+
+Sharding distributes data across multiple database servers for horizontal scaling.
+
+When to Use:
+Use Partitioning for better performance within one server
+Use Sharding when one server cannot handle large-scale data
 
 
 
