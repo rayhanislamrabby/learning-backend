@@ -8,6 +8,7 @@ import cookieParser from "cookie-parser";
 
 import router from "./app/routes/routes.js";
 import notFound from "./app/middleware/notFound.js";
+import globalError from "./app/middleware/globalError.js";
 
 const app: Application = express();
 
@@ -23,7 +24,10 @@ app.use("/api/v1", router);
 app.get("/", (req: Request, res: Response) => {
   res.send("Backend Server Running");
 });
-
+// Not Found p
 app.use(notFound);
+// globar error
+
+app.use(globalError);
 
 export default app;

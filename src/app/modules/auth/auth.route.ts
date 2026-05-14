@@ -9,3 +9,4 @@ const router: Router = express.Router();
 router.post("/login", validateRequest(EmailEschema), AuthController.login);
 
 export const AuthRoutes = router;
+
