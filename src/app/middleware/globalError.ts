@@ -5,29 +5,21 @@ const globalError = (
   err: any,
   req: Request,
   res: Response,
-  next: NextFunction
+  next: NextFunction,
 ) => {
+  // Status Code
   const statusCode = err.statusCode || status.INTERNAL_SERVER_ERROR;
 
-  // Development Error Response
-  const developerErrorResponse = {
+  // Developer Error (Only terminal)
+  console.log("Global Error");
+  console.log(err);
+  console.log(err.stack);
+
+  // Client Error Response
+  res.status(statusCode).json({
     success: false,
     message: err.message || "Something went wrong",
-    error: err,
-    stack: err.stack,
-  };
-
-  // Production Error Response
-  const productionErrorResponse = {
-    success: false,
-    message: err.message || "Something went wrong",
-  };
-
-  if (process.env.NODE_ENV === "development") {
-    return res.status(statusCode).json(developerErrorResponse);
-  }
-
-  return res.status(statusCode).json(productionErrorResponse);
+  });
 };
 
 export default globalError;
