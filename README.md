@@ -1,5 +1,134 @@
 
-<img width="1114" height="529" alt="Untitled" src="https://github.com/user-attachments/assets/661f71e0-fb14-49ee-ad8d-e81b87bd462f" />
+# 1. What is Prisma ORM and why is it used in backend development?
+
+## Answer:
+Prisma ORM is a modern database toolkit for Node.js and TypeScript applications. It helps developers interact with databases easily using JavaScript/TypeScript instead of writing raw SQL queries.
+
+It is mainly used in backend development because it:
+- Simplifies database operations
+- Provides type safety
+- Improves developer productivity
+- Supports databases like PostgreSQL, MySQL, MongoDB, SQLite, etc.
+- Makes queries cleaner and easier to maintain
+
+Prisma consists of:
+1. Prisma Client → Used to query the database
+2. Prisma Schema → Defines database models
+3. Prisma Migrate → Handles database migrations
+
+---
+
+# 2. What is the difference between `findUnique()` and `findFirst()` in Prisma?
+
+## Answer:
+
+| Feature | `findUnique()` | `findFirst()` |
+|---|---|---|
+| Used for | Unique fields only | Any field |
+| Returns | One unique record | First matching record |
+| Requires unique constraint | Yes | No |
+| Performance | Faster | Slightly slower |
+
+## Key Difference:
+- `findUnique()` searches using a unique field.
+- `findFirst()` searches using any condition and returns the first match.
+
+---
+
+# 3. What is Prisma Migration and why is `prisma migrate dev` used?
+
+## Answer:
+
+Prisma Migration is a feature that helps manage database schema changes in a structured and version-controlled way.
+
+When developers change models in the Prisma schema, Prisma Migration updates the database accordingly.
+
+## Purpose of `prisma migrate dev`
+
+The command:
+```bash
+npx prisma migrate dev
+```
+
+is used to:
+- Create new migration files
+- Update the database schema
+- Apply changes to the database
+- Generate Prisma Client automatically
+
+## Benefits:
+- Keeps database schema synchronized
+- Tracks schema history
+- Easier teamwork and deployment
+
+---
+
+# 4. Explain the difference between `select` and `include` in Prisma.
+
+## Answer:
+
+Both `select` and `include` are used to control what data Prisma returns, but they work differently.
+
+| Feature | `select` | `include` |
+|---|---|---|
+| Purpose | Select specific fields | Include related models |
+| Returns | Only chosen fields | Main model + relations |
+| Used for | Field filtering | Relation fetching |
+
+## Main Difference:
+- `select` → chooses specific fields
+- `include` → fetches related data/models
+
+---
+
+# 5. What is the purpose of the Prisma schema file (`schema.prisma`) and what are its main sections?
+
+## Answer:
+
+The `schema.prisma` file is the main configuration file in Prisma. It defines:
+- Database connection
+- Data models
+- Prisma client configuration
+
+It acts as the blueprint of the database structure.
+
+---
+
+## Main Sections of `schema.prisma`
+
+### 1. Generator Section
+Defines Prisma Client generation.
+
+Purpose:
+- Generates Prisma Client for database queries.
+
+---
+
+### 2. Datasource Section
+Defines database connection details.
+
+Purpose:
+- Connects Prisma to the database.
+
+---
+
+### 3. Model Section
+Defines database tables/models.
+
+Purpose:
+- Creates database tables
+- Defines fields and relations
+
+---
+
+## Overall Purpose of `schema.prisma`
+- Central place for database configuration
+- Defines application data structure
+- Enables migrations and Prisma Client generation
+- Maintains consistency between code and database
+
+
+
 
 Database Management System (DBMS) Interview Questions & Answers
 
