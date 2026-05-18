@@ -3,7 +3,7 @@ import { z } from "zod";
 // creat user  
 
 export const UserCreateSchema = z.object({
-  fullName: z
+  name: z
     .string()
     .min(2, "Full name must be at least 2 characters")
     .max(100, "Full name is too long"),
