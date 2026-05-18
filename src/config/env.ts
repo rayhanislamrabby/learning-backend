@@ -5,7 +5,8 @@ dotenv.config();
 export const envVars = {
   NODE_ENV: process.env.NODE_ENV,
   PORT: process.env.PORT,
-  DATABASE_URL: process.env.DATABASE_URL,
+  DATABASE_URL: process.env.DATABASE_URL as string,
+  MONGO_URL: process.env.MONGOOSE_URL as string,
 
   EMAIL_USER: process.env.EMAIL_USER,
   EMAIL_PASS: process.env.EMAIL_PASS,
