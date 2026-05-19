@@ -33,4 +33,10 @@ router.post(
 
 router.get("/allusers", AuthController.getAllUsers);
 
+
+
+
+
+
+
 export const AuthRoutes = router;

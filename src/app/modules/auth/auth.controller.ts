@@ -34,10 +34,6 @@ const getAllUsers = catchAsync(async (req: Request, res: Response) => {
   ApiResponse.success(res, result, "Users fetched successfully");
 });
 
-const mongo = catchAsync(async (req: Request, res: Response) => {
-  const result = await AuthService.mongo;
-});
-
 export const AuthController = {
   register,
   login,

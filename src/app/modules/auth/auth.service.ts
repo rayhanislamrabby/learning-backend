@@ -3,7 +3,7 @@ import bcrypt from "bcrypt";
 import type { UserCreate, UserLogin, EmailVerify } from "./auth.validation.js";
 import prisma from "../../../../lib/prisma.js";
 import { sendEmail } from "../../../utils/sendEmail.js";
-import { User } from "./auth.model.js";
+
 
 // register
 
@@ -113,21 +113,12 @@ const getAllUsers = async () => {
   return users;
 };
 
-const mongo = async (payload: any) => {
-  const user = await User.create({
-    name: payload.name,
-    age: payload.age,
-    isAdmin: payload.isAdmin,
-    email: payload.email,
-  });
 
-  return user;
-};
 
 export const AuthService = {
   register,
   verifyEmail,
   login,
   getAllUsers,
-  mongo,
+
 };

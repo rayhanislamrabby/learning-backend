@@ -15,9 +15,6 @@
 
 // export default connectDb;
 
-
-
-
 import mongoose from "mongoose";
 import { envVars } from "../src/config/env.js";
 
@@ -61,7 +58,7 @@ async function connectDB() {
     cached.promise = mongoose
       .connect(MONGODB_URI, opts)
       .then((mongooseInstance) => {
-        console.log("MongoDB Connected 🚀");
+        console.log("MongoDB Connected ");
 
         return mongooseInstance;
       });
