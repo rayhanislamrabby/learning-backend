@@ -1,6 +1,7 @@
 import { Server } from "http";
 import app from "./app.js";
 import { envVars } from "./config/env.js";
+import connectDB from "../lib/mongoose.js";
 
 let server: Server;
 
@@ -12,6 +13,9 @@ process.on("uncaughtException", (error) => {
 
 async function bootstrap() {
   try {
+    // mongodbcannect
+    await connectDB();
+
     server = app.listen(envVars.PORT, () => {
       console.log(`Server running on port ${envVars.PORT}`);
     });

@@ -9,7 +9,6 @@ import cookieParser from "cookie-parser";
 import router from "./app/routes/routes.js";
 import notFound from "./app/middleware/notFound.js";
 import globalError from "./app/middleware/globalError.js";
-import { UserRoutes } from "./app/modules/user/users.route.js";
 
 const app: Application = express();
 
