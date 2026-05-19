@@ -3,8 +3,9 @@ import bcrypt from "bcrypt";
 import type { UserCreate, UserLogin, EmailVerify } from "./auth.validation.js";
 import prisma from "../../../../lib/prisma.js";
 import { sendEmail } from "../../../utils/sendEmail.js";
+import { User } from "./auth.model.js";
 
-// register 
+// register
 
 const register = async (payload: UserCreate) => {
   // check existing user
@@ -37,15 +38,11 @@ const register = async (payload: UserCreate) => {
   });
 
   // send otp email
-  await sendEmail(
-    payload.email,
-    "Email Verification",
-    `Your OTP is ${otp}`,
-  );
+  await sendEmail(payload.email, "Email Verification", `Your OTP is ${otp}`);
 
   return user;
 };
-// login 
+// login
 
 const login = async (payload: UserLogin) => {
   // find user
@@ -72,7 +69,7 @@ const login = async (payload: UserLogin) => {
   return user;
 };
 
-// verify email 
+// verify email
 
 const verifyEmail = async (payload: EmailVerify) => {
   const user = await prisma.users.findUnique({
@@ -100,12 +97,37 @@ const verifyEmail = async (payload: EmailVerify) => {
       otp: null,
     },
   });
+};
 
-  return null;
+// get all userr
+
+const getAllUsers = async () => {
+  const users = await prisma.users.findMany({
+    select: {
+      id: true,
+      name: true,
+      email: true,
+    },
+  });
+
+  return users;
+};
+
+const mongo = async (payload: any) => {
+  const user = await User.create({
+    name: payload.name,
+    age: payload.age,
+    isAdmin: payload.isAdmin,
+    email: payload.email,
+  });
+
+  return user;
 };
 
 export const AuthService = {
   register,
-  login,
   verifyEmail,
+  login,
+  getAllUsers,
+  mongo,
 };
